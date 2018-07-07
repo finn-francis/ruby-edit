@@ -2,12 +2,12 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ruby/edit/version'
+require 'ruby_edit/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'ruby-edit'
   spec.license       = 'MIT'
-  spec.version       = Ruby::Edit::VERSION
+  spec.version       = RubyEdit::VERSION
   spec.authors       = ['finn-francis']
   spec.email         = ['finn_francis@yahoo.com']
 
