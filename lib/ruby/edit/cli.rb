@@ -17,7 +17,8 @@ module Ruby
         require_relative 'version'
         puts "v#{Ruby::Edit::VERSION}"
       end
-      map %w(--version -v) => :version
+      map %w[--version -v] => :version
     end
   end
 end
+

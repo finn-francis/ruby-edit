@@ -1,0 +1,15 @@
+Layout/TrailingBlankLines:
+  EnforcedStyle: final_blank_line
+
+Metrics/BlockLength:
+  Max: 100
+
+Metrics/LineLength:
+  Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
