@@ -5,7 +5,7 @@ require 'ruby_edit/command'
 module RubyEdit
   class SourceFile < RubyEdit::Command
     def populate(content)
-      generator.create_file(RubyEdit::SOURCE_FILE_LOCATION, content)
+      generator.create_file(RubyEdit::SOURCE_FILE_LOCATION, content, force: true)
     end
 
     def delete
