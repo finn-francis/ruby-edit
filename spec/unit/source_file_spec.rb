@@ -4,7 +4,7 @@ require 'ruby_edit/source_file'
 
 RSpec.describe RubyEdit::SourceFile do
   let(:sourcefile) { RubyEdit::SourceFile.new }
-  let(:location) { 'temp/sourcefile' }
+  let(:location) { RubyEdit::SOURCE_FILE_LOCATION }
   let(:content) { 'FILE CONTENT' }
 
   after { File.delete(location) if File.exist?(location) }

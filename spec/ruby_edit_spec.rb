@@ -7,7 +7,7 @@ RSpec.describe RubyEdit do
 
   describe 'LOCATION' do
     it 'should specify the location' do
-      expect(RubyEdit::SOURCE_FILE_LOCATION).to eq 'temp/sourcefile'
+      expect(RubyEdit::SOURCE_FILE_LOCATION).to include 'temp/sourcefile'
     end
   end
 

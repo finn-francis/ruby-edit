@@ -4,7 +4,7 @@ require 'tty/config'
 
 module RubyEdit
   class Configuration
-    LOCATION = 'configuration'
+    LOCATION = File.expand_path('../../configuration', __dir__)
 
     def initialize
       @config          = TTY::Config.new
