@@ -3,6 +3,6 @@
 require 'ruby_edit/version'
 
 module RubyEdit
-  # Your code goes here...
+  SOURCE_FILE_LOCATION = 'temp/sourcefile'
 end
 
