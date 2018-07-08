@@ -48,6 +48,25 @@ module RubyEdit
     end
 
     map %w[--configure -c] => :configure
+
+    desc 'edit', '[Default] Perform a grep and edit the changes in one file'
+    method_option :help, aliases: '-h', type: :boolean, desc: 'Display usage information'
+    method_option :expression, aliases: %w[-e --expression], type: :string,
+                               desc: 'the grep expression'
+    method_option :path, aliases: %w[-p --path], type: :string, desc: 'the path you want to search'
+
+    def edit(*)
+      if options[:help]
+        invoke :help, ['edit']
+      elsif options.empty?
+        invoke :help
+      else
+        require_relative 'commands/edit'
+        RubyEdit::Commands::Edit.new(options).execute
+      end
+    end
+
+    default_task :edit
   end
 end
 
