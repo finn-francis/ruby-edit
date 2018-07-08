@@ -33,6 +33,21 @@ module RubyEdit
     end
 
     map %w[--grep -g] => :grep
+
+    desc 'configure', 'set and read your settings'
+    method_option :help, aliases: '-h', type: :boolean, desc: 'Display useage information'
+    method_option :editor, aliases: %w[-e --editor], type: :string,
+                           desc: 'Set or view your default text editor'
+    def configure(*)
+      if options[:help]
+        invoke :help, ['configure']
+      else
+        require_relative 'commands/configure'
+        RubyEdit::Commands::Configure.new(options).execute
+      end
+    end
+
+    map %w[--configure -c] => :configure
   end
 end
 
