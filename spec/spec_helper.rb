@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'simplecov'
 require 'ruby_edit'
 
 RSpec.configure do |config|
