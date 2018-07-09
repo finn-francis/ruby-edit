@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'ruby_edit'
-require 'ruby_edit/writer'
-
 RSpec.describe RubyEdit::Writer do
   let(:writer) { RubyEdit::Writer.new }
   let(:generator) { RubyEdit::Command.new.generator }

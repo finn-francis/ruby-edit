@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'ruby_edit/commands/grep'
-
 RSpec.describe RubyEdit::Commands::Grep do
   let(:output) { StringIO.new }
   let(:options) { { path: '.', expression: 'initialize' } }

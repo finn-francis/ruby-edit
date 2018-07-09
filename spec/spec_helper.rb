@@ -2,7 +2,8 @@
 
 require 'bundler/setup'
 require 'simplecov'
-require 'ruby_edit'
+
+Dir[File.expand_path('../lib/**/*.rb', __dir__)].each { |file| require file }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

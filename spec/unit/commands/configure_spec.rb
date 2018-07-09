@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'ruby_edit/commands/configure'
-
 RSpec.describe RubyEdit::Commands::Configure do
   let(:output) { StringIO.new }
   let(:command) { RubyEdit::Commands::Configure.new(options) }

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'ruby_edit/editor'
-
 RSpec.describe RubyEdit::Editor do
   let(:editor) { RubyEdit::Editor.new }
 

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'ruby_edit/configuration'
-
 RSpec.describe RubyEdit::Configuration do
   let(:config) { RubyEdit::Configuration.new }
   after { config.reset_defaults }

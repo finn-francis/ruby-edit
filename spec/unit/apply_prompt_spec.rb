@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'ruby_edit/apply_prompt'
-
 RSpec.describe RubyEdit::ApplyPrompt do
   let(:prompt) { RubyEdit::ApplyPrompt.new }
 

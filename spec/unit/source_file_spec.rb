@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'ruby_edit/source_file'
-
 RSpec.describe RubyEdit::SourceFile do
   let(:sourcefile) { RubyEdit::SourceFile.new }
   let(:location) { RubyEdit::SOURCE_FILE_LOCATION }
