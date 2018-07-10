@@ -1,0 +1,4 @@
+spec/support/temp_directory/file2.txt:4:CHANGED_TEXT
+spec/support/temp_directory/file1.txt:3:CHANGED_TEXT
+Binary file ./.git/index matches
+
