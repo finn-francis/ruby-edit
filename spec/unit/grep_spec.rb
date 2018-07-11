@@ -2,8 +2,12 @@
 
 RSpec.describe RubyEdit::Grep do
   let(:grep) { RubyEdit::Grep.new(options) }
-  let(:options) { { path: '.', expression: 'initialize' } }
+  let(:options) { { path: '.', expression: 'TEXT_TO_CHANGE' } }
   let(:output) { StringIO.new }
+
+  before do
+    stub_const 'RubyEdit::SOURCE_FILE_LOCATION', 'spec/support/sourcefile'
+  end
 
   describe '#search' do
     it 'should have a getter for result' do
