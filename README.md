@@ -1,38 +1,67 @@
 # RubyEdit
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruby_edit`. To experiment with that code, run `bin/console` for an interactive prompt.
+ALPHA RELEASE
 
-TODO: Delete this and the text above, and describe your gem
+RubyEdit is a simple commandline app that allows you to edit grep results in one file.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Run this line in your terminal:
 
 ```ruby
-gem 'ruby-edit'
+gem install ruby-edit
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ruby-edit
 
 ## Usage
 
-TODO: Write usage instructions here
+### ruby-edit
+
+Run:
+```bash
+ruby-edit -e my_expression -p ./path/to/file/
+```
+
+This will populate a tempfile with the grep results.
+
+e.g.
+```ruby
+./path/to/file/file.rb:4:  my_expression('string')
+./path/to/file/file.rb:10:    def my_expression(string)
+./path/to/file/file_spec.rb:7: expect { my_expression('string') }.to do
+```
+
+Perform your edits and then save your file.
+
+Warning:
+Leave the path and line number alone, as this is used to find the respective file.
+The space between the line number and your text is your indentation. Removing it will affect the indentation of your text.
+
+You'll then be prompted in the console:
+
+```bash
+Do you want to apply these changes? (Y/n)
+```
+
+Selecting 'Y' will insert your changes into their respective files.
+
+### configure
+
+Run:
+```bash
+ruby-edit configure -e my_editor
+```
+
+This will set your default editor.
+Pass the command you use to start your editor, NOT the name of the editor.
+For example: if you use Sublime Text send `subl` not `Sublime Text`
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ruby-edit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/finn-francis/ruby-edit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Code of Conduct
 
