@@ -9,11 +9,11 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
   spec.version       = RubyEdit::VERSION
   spec.authors       = ['finn-francis']
-  spec.email         = ['finn_francis@yahoo.com']
+  spec.email         = ['finnfrancis123@gmail.com']
 
-  spec.summary       = 'Write a short summary, because RubyGems requires one.'
-  spec.description   = 'Write a longer description or delete this line.'
-  spec.homepage      = 'https://www.google.com'
+  spec.summary       = 'Edit grep results in one file'
+  spec.description   = 'Edit grep results in one file'
+  spec.homepage      = 'https://github.com/finn-francis/ruby-edit'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
