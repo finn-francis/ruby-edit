@@ -4,12 +4,9 @@ require 'tty/config'
 
 module RubyEdit
   class Configuration
-    LOCATION = File.expand_path('../../configuration', __dir__)
-
     def initialize
-      @config          = TTY::Config.new
-      @config.filename = LOCATION
-      @config.read("#{LOCATION}.yml")
+      @config = TTY::Config.new
+      @config.read("#{RubyEdit::CONFIGURATION_LOCATION}.yml")
     end
 
     def editor
@@ -29,7 +26,7 @@ module RubyEdit
     private
 
     def write
-      @config.write
+      @config.write("#{RubyEdit::CONFIGURATION_LOCATION}.yml", force: true)
     end
   end
 end
