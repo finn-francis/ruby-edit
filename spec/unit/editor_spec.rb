@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'tty/editor'
+
 RSpec.describe RubyEdit::Editor do
   let(:editor) { RubyEdit::Editor.new }
 
@@ -9,9 +11,8 @@ RSpec.describe RubyEdit::Editor do
 
   describe '#edit_sourcefile' do
     it 'should open the sourcefile in an editor' do
-      expect(editor).to receive(:edit_sourcefile)
-      editor.edit_sourcefile
-      expect(editor).to respond_to :edit_sourcefile
+      expect(TTY::Editor).to receive(:open).and_return(true)
+      expect(editor.edit_sourcefile).to be_truthy
     end
   end
 end
