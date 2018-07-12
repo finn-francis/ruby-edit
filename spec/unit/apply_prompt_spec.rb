@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
+require 'tty/prompt'
+
 RSpec.describe RubyEdit::ApplyPrompt do
   let(:prompt) { RubyEdit::ApplyPrompt.new }
 
   it 'should respond to #continue?' do
-    expect(prompt).to respond_to :continue?
-    expect(prompt).to receive(:continue?)
-    prompt.continue?
+    expect_any_instance_of(TTY::Prompt).to receive(:yes?).and_return(true)
+    expect(prompt.continue?).to be_truthy
   end
 end
 
