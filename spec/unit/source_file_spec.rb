@@ -10,22 +10,22 @@ RSpec.describe RubyEdit::SourceFile do
   describe '#populate' do
     it 'should create a file in temp' do
       expect do
-        sourcefile.populate(content)
+        sourcefile.populate(content, verbose: false)
       end.to change { File.exist?(location) }.to true
     end
 
     it 'should add content to the created file' do
-      sourcefile.populate(content)
+      sourcefile.populate(content, verbose: false)
       expect(File.read(location)).to eq content
     end
   end
 
   describe '#delete' do
-    before { sourcefile.populate(content) }
+    before { sourcefile.populate(content, verbose: false) }
 
     it 'should delete the file' do
       expect do
-        sourcefile.delete
+        sourcefile.delete(verbose: false)
       end.to change { File.exist?(location) }.to false
     end
   end
