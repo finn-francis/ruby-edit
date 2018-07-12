@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'tty/command'
+
 RSpec.describe RubyEdit::Grep do
   let(:grep) { RubyEdit::Grep.new(options) }
   let(:options) { { path: '.', expression: 'TEXT_TO_CHANGE' } }
@@ -7,6 +9,8 @@ RSpec.describe RubyEdit::Grep do
 
   before do
     stub_const 'RubyEdit::SOURCE_FILE_LOCATION', 'spec/support/sourcefile'
+    allow_any_instance_of(RubyEdit::Command)
+      .to(receive(:command).and_return(TTY::Command.new(printer: :null)))
   end
 
   describe '#search' do
@@ -15,7 +19,7 @@ RSpec.describe RubyEdit::Grep do
     end
 
     it 'should perform a grep search' do
-      search = grep.search
+      search = grep.search(output: output)
       expect(search).to be_a TTY::Command::Result
       expect(search.out).to_not be_empty
     end
@@ -24,7 +28,7 @@ RSpec.describe RubyEdit::Grep do
       let(:options) { { path: './lib/', expression: 'NON-EXISTING-STRING' } }
 
       it 'should not error out' do
-        expect { grep.search }.to_not raise_error
+        expect { grep.search(output: output) }.to_not raise_error
       end
 
       it 'should print the error' do
