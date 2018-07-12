@@ -4,12 +4,6 @@ RSpec.describe RubyEdit::Configuration do
   let(:config) { RubyEdit::Configuration.new }
   after { config.reset_defaults }
 
-  describe RubyEdit::Configuration::LOCATION do
-    it 'should return the location of the configuration yaml file' do
-      expect(RubyEdit::Configuration::LOCATION).to include 'configuration'
-    end
-  end
-
   context 'configuration is loaded for the first time' do
     it 'should load the default values' do
       expect(config.editor).to eq :vim

@@ -11,6 +11,12 @@ RSpec.describe RubyEdit do
     end
   end
 
+  describe RubyEdit::CONFIGURATION_LOCATION do
+    it 'should return the location of the configuration yaml file' do
+      expect(RubyEdit::CONFIGURATION_LOCATION).to include 'configuration'
+    end
+  end
+
   describe '#config' do
     it 'should have a config' do
       expect(RubyEdit.config).to be_a RubyEdit::Configuration
