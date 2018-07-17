@@ -13,11 +13,11 @@ RSpec.describe '`ruby_edit grep` command', type: :cli do
       "Usage:\n  ruby-edit grep"
     end
     let(:help) { '-h, [--help], [--no-help]' }
-    let(:expression) { '-e, --expression, [--expression=EXPRESSION]' }
+    let(:expression) { '-e, --expression, --expression=EXPRESSION' }
     let(:path) { '-p, --path, [--path=PATH]' }
 
     it 'should execute the `ruby-edit help grep` command successfully' do
-      expect(output).to include(usage, help, expression, path)
+      expect(output).to include(usage, expression, path)
     end
   end
 end

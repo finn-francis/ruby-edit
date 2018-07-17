@@ -19,9 +19,8 @@ module RubyEdit
     map %w[--version -v] => :version
 
     desc 'grep', 'search for an expression in your directory'
-    method_option :help, aliases: '-h', type: :boolean, desc: 'Display usage information'
     method_option :expression, aliases: %w[-e --expression], type: :string,
-                               desc: 'the grep expression'
+                               desc: 'the grep expression', required: true
     method_option :path, aliases: %w[-p --path], type: :string, desc: 'the path you want to search'
     def grep(*)
       if options[:help]
@@ -50,11 +49,9 @@ module RubyEdit
     map %w[--configure -c] => :configure
 
     desc 'edit', '[Default] Perform a grep and edit the changes in one file'
-    method_option :help, aliases: '-h', type: :boolean, desc: 'Display usage information'
     method_option :expression, aliases: %w[-e --expression], type: :string,
-                               desc: 'the grep expression'
+                               desc: 'the grep expression', required: true
     method_option :path, aliases: %w[-p --path], type: :string, desc: 'the path you want to search'
-
     def edit(*)
       if options[:help]
         invoke :help, ['edit']
