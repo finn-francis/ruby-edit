@@ -19,7 +19,7 @@ module RubyEdit
       end
 
       def execute
-        grep_search
+        return unless grep_search
         populate_sourcefile
         edit_file
         apply_changes if apply_changes?
