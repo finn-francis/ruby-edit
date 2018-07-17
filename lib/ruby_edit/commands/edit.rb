@@ -9,7 +9,6 @@ require 'ruby_edit/writer'
 
 module RubyEdit
   module Commands
-    # TODO: Write an integration spec for this
     class Edit
       def initialize(options)
         @grep       = RubyEdit::Grep.new(options)
