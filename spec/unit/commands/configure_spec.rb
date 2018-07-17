@@ -24,7 +24,7 @@ RSpec.describe RubyEdit::Commands::Configure do
       end
 
       it 'should change the default editor' do
-        expect { command.execute(output: output) }.to change { RubyEdit.config.editor }.to :nano
+        expect { command.execute(output: output) }.to change { RubyEdit.config.editor }.to 'nano'
       end
     end
   end

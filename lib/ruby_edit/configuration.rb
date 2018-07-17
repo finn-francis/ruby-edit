@@ -10,11 +10,11 @@ module RubyEdit
     end
 
     def editor
-      @config.fetch(:editor)&.to_sym || :vim
+      @config.fetch(:editor) || 'vim'
     end
 
     def editor=(editor)
-      @config.set(:editor, value: editor.to_s)
+      @config.set(:editor, value: editor)
       write
     end
 
