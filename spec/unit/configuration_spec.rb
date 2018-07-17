@@ -2,6 +2,11 @@
 
 RSpec.describe RubyEdit::Configuration do
   let(:config) { RubyEdit::Configuration.new }
+  before do
+    # TODO: This needs to be tested properly
+    expect_any_instance_of(TTY::Config)
+      .to(receive(:read).and_return('editor' => 'vim'))
+  end
   after { config.reset_defaults }
 
   context 'configuration is loaded for the first time' do

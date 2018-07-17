@@ -11,7 +11,7 @@ module RubyEdit
       end
 
       def execute(output: $stdout)
-        @result = @grep.search
+        @result = @grep.search(output: output)
         output.puts 'OK'
       end
     end

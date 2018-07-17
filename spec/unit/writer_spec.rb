@@ -8,7 +8,7 @@ RSpec.describe RubyEdit::Writer do
   end
   after do
     generator.copy_directory('spec/support/test_directory', 'spec/support/temp_directory',
-                             force: true)
+                             force: true, verbose: false)
   end
 
   describe '#write' do
