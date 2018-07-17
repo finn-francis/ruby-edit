@@ -18,8 +18,17 @@ module RubyEdit
       write
     end
 
+    def grep_options
+      @config.fetch(:grep_options) || 'ir'
+    end
+
+    def grep_options=(grep_options)
+      @config.set(:grep_options, value: grep_options)
+    end
+
     def reset_defaults
       @config.set(:editor, value: 'vim')
+      @config.set(:grep_options, value: 'ir')
       write
     end
 

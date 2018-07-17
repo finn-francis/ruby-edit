@@ -5,21 +5,27 @@ RSpec.describe RubyEdit::Configuration do
   before do
     # TODO: This needs to be tested properly
     expect_any_instance_of(TTY::Config)
-      .to(receive(:read).and_return('editor' => 'vim'))
+      .to(receive(:read).and_return('editor' => 'vim', grep_options: 'ir'))
   end
   after { config.reset_defaults }
 
   context 'configuration is loaded for the first time' do
     it 'should load the default values' do
       expect(config.editor).to eq 'vim'
+      expect(config.grep_options).to eq 'ir'
     end
   end
 
   describe '#reset_defaults' do
     before { config.editor = 'nano' }
+    before { config.grep_options = '' }
 
-    it 'should set the config back to default' do
+    it 'should set the editor back to default' do
       expect { config.reset_defaults }.to change { config.editor }.to 'vim'
+    end
+
+    it 'should set the grep_options back to default' do
+      expect { config.reset_defaults }.to change { config.grep_options }.to 'ir'
     end
   end
 
@@ -32,6 +38,18 @@ RSpec.describe RubyEdit::Configuration do
   describe '#editor=' do
     it 'should change the default editor' do
       expect { config.editor = 'nano' }.to change { config.editor }.to 'nano'
+    end
+  end
+
+  describe '#grep_options' do
+    it 'should return the grep_options' do
+      expect(config.grep_options).to eq 'ir'
+    end
+  end
+
+  describe '#grep_options=' do
+    it 'should change the default grep_options' do
+      expect { config.grep_options = '' }.to change { config.grep_options }.to ''
     end
   end
 end
