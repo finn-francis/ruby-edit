@@ -1,6 +1,7 @@
-# RubyEdit
+[![Gem Version](https://badge.fury.io/rb/ruby-edit.svg)](https://badge.fury.io/rb/ruby-edit)
+[![Build Status](https://travis-ci.org/finn-francis/ruby-edit.svg?branch=master)](https://travis-ci.org/finn-francis/ruby-edit)
 
-ALPHA RELEASE
+# RubyEdit
 
 RubyEdit is a simple commandline app that allows you to edit grep results in one file.
 
