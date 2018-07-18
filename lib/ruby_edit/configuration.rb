@@ -24,6 +24,7 @@ module RubyEdit
 
     def grep_options=(grep_options)
       @config.set(:grep_options, value: grep_options)
+      write
     end
 
     def reset_defaults
