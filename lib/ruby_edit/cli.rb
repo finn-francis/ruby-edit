@@ -37,6 +37,8 @@ module RubyEdit
     method_option :help, aliases: '-h', type: :boolean, desc: 'Display useage information'
     method_option :editor, aliases: %w[-e --editor], type: :string,
                            desc: 'Set or view your default text editor'
+    method_option :grep_options, aliases: %w[-o --grep-options], type: :string,
+                                 description: 'default grep options to refine your searches'
     def configure(*)
       if options[:help]
         invoke :help, ['configure']

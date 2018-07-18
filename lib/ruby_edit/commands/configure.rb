@@ -5,24 +5,27 @@ require 'ruby_edit'
 module RubyEdit
   module Commands
     class Configure
+      CONFIGURATIONS = %i[editor grep_options].freeze
+
       def initialize(options)
         @options = options
       end
 
       def execute(output: $stdout)
-        # This may need to be made dynamic if more configuration options are added
-        if editor == 'editor'
-          output.puts RubyEdit.config.editor
-        else
-          RubyEdit.config.editor = editor
-          output.puts "Editor changed to #{editor}"
+        options.each do |key, val|
+          if val == key.to_s
+            output.puts RubyEdit.config.send(key)
+          else
+            RubyEdit.config.send("#{key}=", val)
+            output.puts "#{key.to_s.titleize} changed to #{val}"
+          end
         end
       end
 
       private
 
-      def editor
-        @options[:editor]
+      def options
+        @options = @options.select { |key, _val| CONFIGURATIONS.include?(key.to_sym) }
       end
     end
   end

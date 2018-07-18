@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'ruby_extensions/string'
 require 'ruby_edit/version'
 require 'ruby_edit/configuration'
 
