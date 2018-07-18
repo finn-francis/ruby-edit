@@ -17,7 +17,6 @@ module RubyEdit
         return false
       end
       @result = run "grep -irn #{@path} -e '#{@expression}'" do |out, err|
-        output << out if out
         errors << err if err
       end
     rescue TTY::Command::ExitError => error
