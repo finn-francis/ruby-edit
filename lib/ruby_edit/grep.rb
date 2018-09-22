@@ -7,7 +7,7 @@ module RubyEdit
     attr_reader :result
 
     def initialize(options)
-      @path       = options[:path] || '.'
+      @path       = options[:path] || '*'
       @expression = options[:expression]
     end
 
