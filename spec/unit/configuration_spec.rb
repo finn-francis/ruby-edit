@@ -12,7 +12,7 @@ RSpec.describe RubyEdit::Configuration do
   context 'configuration is loaded for the first time' do
     it 'should load the default values' do
       expect(config.editor).to eq 'vim'
-      expect(config.grep_options).to eq 'ir'
+      expect(config.grep_options).to eq 'irn'
     end
   end
 
@@ -25,7 +25,7 @@ RSpec.describe RubyEdit::Configuration do
     end
 
     it 'should set the grep_options back to default' do
-      expect { config.reset_defaults }.to change { config.grep_options }.to 'ir'
+      expect { config.reset_defaults }.to change { config.grep_options }.to 'irn'
     end
   end
 
@@ -43,13 +43,13 @@ RSpec.describe RubyEdit::Configuration do
 
   describe '#grep_options' do
     it 'should return the grep_options' do
-      expect(config.grep_options).to eq 'ir'
+      expect(config.grep_options).to eq 'irn'
     end
   end
 
   describe '#grep_options=' do
     it 'should change the default grep_options' do
-      expect { config.grep_options = '' }.to change { config.grep_options }.to ''
+      expect { config.grep_options = '' }.to change { config.grep_options }.to 'n'
     end
   end
 end
