@@ -19,7 +19,7 @@ RSpec.describe RubyEdit::Commands::Configure do
 
       it 'should display the default grep_options' do
         command.execute(output: output)
-        expect(output.string).to eq "ir\n"
+        expect(output.string).to eq "irn\n"
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe RubyEdit::Commands::Configure do
       it 'should change the default grep_options' do
         expect do
           command.execute(output: output)
-        end.to change { RubyEdit.config.grep_options }.to 'al'
+        end.to change { RubyEdit.config.grep_options }.to 'aln'
       end
     end
   end

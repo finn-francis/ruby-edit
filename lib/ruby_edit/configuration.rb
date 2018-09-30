@@ -19,11 +19,15 @@ module RubyEdit
     end
 
     def grep_options
-      @config.fetch(:grep_options) || 'ir'
+      options = @config.fetch(:grep_options) || 'ir'
+      # The n option is needed for edited changes to be applied, so it needs to be added here
+      # automatically
+      "#{options}n"
     end
 
     def grep_options=(grep_options)
-      @config.set(:grep_options, value: grep_options)
+      # All occurences of n are removed, as n is autamatically added when the options are fetched.
+      @config.set(:grep_options, value: grep_options.gsub('n', ''))
       write
     end
 
