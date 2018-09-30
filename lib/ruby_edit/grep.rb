@@ -9,6 +9,7 @@ module RubyEdit
     def initialize(options)
       @path       = options[:path] || '*'
       @expression = options[:expression]
+      @config     = RubyEdit.config
     end
 
     def search(output: $stdout, errors: $stderr)
@@ -16,7 +17,7 @@ module RubyEdit
         output.puts 'No expression given'
         return false
       end
-      @result = run "grep -irn #{@path} -e '#{@expression}'" do |out, err|
+      @result = run "grep -#{@config.grep_options} #{@path} -e '#{@expression}'" do |out, err|
         errors << err if err
       end
     rescue TTY::Command::ExitError => error
