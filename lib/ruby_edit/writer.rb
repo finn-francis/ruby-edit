@@ -6,7 +6,7 @@ require 'ruby_edit/command'
 
 module RubyEdit
   class Writer < RubyEdit::Command
-    LINE_REGEX = /^.*:\d:+/
+    LINE_REGEX = /^.*:\d+:/
 
     def write
       File.open(RubyEdit::SOURCE_FILE_LOCATION, 'rb') do |file|
