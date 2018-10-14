@@ -18,7 +18,7 @@ module RubyEdit
 
     def find_and_replace_line(new_line)
       @temp_file = Tempfile.new('temp_file')
-      split_file_and_line(new_line)
+      return unless split_file_and_line(new_line)
       @new_line = new_line.sub LINE_REGEX, ''
       begin
         replace_line
@@ -30,17 +30,20 @@ module RubyEdit
     end
 
     def split_file_and_line(line)
-      @file_name, @line_number = line.match(LINE_REGEX)[0].split(':')
-    rescue NoMethodError
-      false
+      match = line.match(LINE_REGEX)
+      return unless match
+      @file_name, @line_number = match[0].split(':')
     end
 
     # Replaces the line in the original file, with the line from the sourcefile
     def replace_line
       File.open(@file_name, 'r+') do |file|
-        file.each_with_index do |line, index|
-          output = index + 1 == @line_number.to_i ? @new_line : line
+        # Using this method instead of each_with_index for performance increase
+        index = 1
+        file.each do |line|
+          output = index == @line_number.to_i ? @new_line : line
           @temp_file.puts output
+          index += 1
         end
       end
     end
