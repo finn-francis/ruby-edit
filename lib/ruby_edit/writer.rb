@@ -38,9 +38,12 @@ module RubyEdit
     # Replaces the line in the original file, with the line from the sourcefile
     def replace_line
       File.open(@file_name, 'r+') do |file|
-        file.each_with_index do |line, index|
-          output = index + 1 == @line_number.to_i ? @new_line : line
+        # Using this method instead of each_with_index for performance increase
+        index = 1
+        file.each do |line|
+          output = index == @line_number.to_i ? @new_line : line
           @temp_file.puts output
+          index += 1
         end
       end
     end
