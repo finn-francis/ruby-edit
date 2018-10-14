@@ -33,10 +33,10 @@ module RubyEdit
     # @see http://www.rubydoc.info/gems/tty-cursor
     #
     # @api public
-    def cursor
-      require 'tty-cursor'
-      TTY::Cursor
-    end
+    # def cursor
+    #   require 'tty-cursor'
+    #   TTY::Cursor
+    # end
 
     # Open a file or text in the user's preferred editor
     #
@@ -63,10 +63,10 @@ module RubyEdit
     # @see http://www.rubydoc.info/gems/tty-pager
     #
     # @api public
-    def pager(**options)
-      require 'tty-pager'
-      TTY::Pager.new(options)
-    end
+    # def pager(**options)
+    #   require 'tty-pager'
+    #   TTY::Pager.new(options)
+    # end
 
     # Terminal platform and OS properties
     #
@@ -103,20 +103,20 @@ module RubyEdit
     # @see http://www.rubydoc.info/gems/tty-which
     #
     # @api public
-    def which(*args)
-      require 'tty-which'
-      TTY::Which.which(*args)
-    end
+    # def which(*args)
+    #   require 'tty-which'
+    #   TTY::Which.which(*args)
+    # end
 
     # Check if executable exists
     #
     # @see http://www.rubydoc.info/gems/tty-which
     #
     # @api public
-    def exec_exist?(*args)
-      require 'tty-which'
-      TTY::Which.exist?(*args)
-    end
+    # def exec_exist?(*args)
+    #   require 'tty-which'
+    #   TTY::Which.exist?(*args)
+    # end
   end
 end
 
