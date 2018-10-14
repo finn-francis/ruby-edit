@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe RubyEdit::Writer do
-  let(:writer) { RubyEdit::Writer.new }
+RSpec.describe RubyEdit::Text::Writer do
+  let(:writer) { RubyEdit::Text::Writer.new }
   let(:generator) { RubyEdit::Command.new.generator }
   before do
     stub_const 'RubyEdit::SOURCE_FILE_LOCATION', 'spec/support/sourcefile'

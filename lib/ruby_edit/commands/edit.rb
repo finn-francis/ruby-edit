@@ -3,15 +3,15 @@
 require 'ruby_edit'
 require 'ruby_edit/apply_prompt'
 require 'ruby_edit/editor'
-require 'ruby_edit/grep'
+require 'ruby_edit/text/grep'
 require 'ruby_edit/source_file'
-require 'ruby_edit/writer'
+require 'ruby_edit/text/writer'
 
 module RubyEdit
   module Commands
     class Edit
       def initialize(options)
-        @grep       = RubyEdit::Grep.new(options)
+        @grep       = RubyEdit::Text::Grep.new(options)
         @sourcefile = RubyEdit::SourceFile.new
         @editor     = RubyEdit::Editor.new
         @output     = $stdout
@@ -45,7 +45,7 @@ module RubyEdit
       end
 
       def apply_changes
-        RubyEdit::Writer.new.write
+        RubyEdit::Text::Writer.new.write
       end
 
       def delete_sourcefile
