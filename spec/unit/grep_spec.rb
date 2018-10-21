@@ -2,8 +2,8 @@
 
 require 'tty/command'
 
-RSpec.describe RubyEdit::Grep do
-  let(:grep) { RubyEdit::Grep.new(options) }
+RSpec.describe RubyEdit::Text::Grep do
+  let(:grep) { RubyEdit::Text::Grep.new(options) }
   let(:options) { { path: '.', expression: 'TEXT_TO_CHANGE' } }
   let(:output) { StringIO.new }
 

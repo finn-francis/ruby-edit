@@ -30,7 +30,7 @@ RSpec.describe RubyEdit::Commands::Edit do
     expect(TTY::Editor).to receive(:open).and_return(true)
     expect_any_instance_of(RubyEdit::SourceFile).to receive(:delete).and_return(true)
     expect_any_instance_of(TTY::Prompt).to receive(:yes?).and_return(true)
-    expect_any_instance_of(RubyEdit::Writer).to receive(:write).and_return(true)
+    expect_any_instance_of(RubyEdit::Text::Writer).to receive(:write).and_return(true)
     # expect_any_instance_of(RubyEdit::Commands::Edit).to receive(:apply_changes).and_return(true)
     expect(command.execute).to be_truthy
   end
