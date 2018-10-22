@@ -45,8 +45,8 @@ module RubyEdit
       elsif options.empty?
         invoke :help
       else
-        require_relative 'commands/edit'
-        RubyEdit::Commands::Edit.new(options).execute
+        require_relative 'commands/text'
+        RubyEdit::Commands::Text.new(options).execute
       end
     end
 

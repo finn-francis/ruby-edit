@@ -3,12 +3,12 @@
 require 'tty/editor'
 require 'tty/command'
 
-RSpec.describe RubyEdit::Commands::Edit do
+RSpec.describe RubyEdit::Commands::Text do
   # TODO: This needs cleaning up!
   let(:output) { StringIO.new }
   let(:options) { { path: '.', expression: 'TEXT_TO_CHANGE' } }
   let(:command) do
-    RubyEdit::Commands::Edit.new(options).tap do |edit|
+    RubyEdit::Commands::Text.new(options).tap do |edit|
       edit.instance_variable_set('@output', output)
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe RubyEdit::Commands::Edit do
     expect_any_instance_of(RubyEdit::SourceFile).to receive(:delete).and_return(true)
     expect_any_instance_of(TTY::Prompt).to receive(:yes?).and_return(true)
     expect_any_instance_of(RubyEdit::Text::Writer).to receive(:write).and_return(true)
-    # expect_any_instance_of(RubyEdit::Commands::Edit).to receive(:apply_changes).and_return(true)
+    # expect_any_instance_of(RubyEdit::Commands::Text).to receive(:apply_changes).and_return(true)
     expect(command.execute).to be_truthy
   end
 end
