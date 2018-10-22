@@ -26,7 +26,7 @@ module RubyEdit
           output.puts 'No expression given'
           return false
         end
-        @result = run "grep -#{@config.grep_options} #{@path} -e '#{@expression}'" do |out, err|
+        @result = run "grep -#{@config.grep_options} #{@path} -e '#{@expression}'" do |_out, err|
           errors << err if err
         end
       rescue TTY::Command::ExitError => error
@@ -41,3 +41,4 @@ module RubyEdit
     end
   end
 end
+
