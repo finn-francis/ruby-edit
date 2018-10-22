@@ -7,9 +7,6 @@ Metrics/BlockLength:
 Metrics/LineLength:
   Max: 100
 
-Style/Documentation:
-  Enabled: false
-
 Style/Encoding:
   Enabled: false
 

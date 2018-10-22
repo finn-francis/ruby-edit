@@ -9,10 +9,10 @@ RSpec.describe RubyEdit::Editor do
     File.delete(RubyEdit::SOURCE_FILE_LOCATION) if File.exist?(RubyEdit::SOURCE_FILE_LOCATION)
   end
 
-  describe '#edit_sourcefile' do
+  describe '#open_sourcefile' do
     it 'should open the sourcefile in an editor' do
       expect(TTY::Editor).to receive(:open).and_return(true)
-      expect(editor.edit_sourcefile).to be_truthy
+      expect(editor.open_sourcefile).to be_truthy
     end
   end
 end

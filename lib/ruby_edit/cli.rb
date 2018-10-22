@@ -12,6 +12,10 @@ module RubyEdit
     Error = Class.new(StandardError)
 
     desc 'version', 'ruby-edit version'
+    # Display the current ruby-edit version [-v --version]
+    #
+    ## ruby-edit --version
+    ## => 1.0.2
     def version
       require_relative 'version'
       puts "v#{RubyEdit::VERSION}"
@@ -24,6 +28,19 @@ module RubyEdit
                            desc: 'Set or view your default text editor'
     method_option :grep_options, aliases: %w[-o --grep-options], type: :string,
                                  description: 'default grep options to refine your searches'
+    # Set and view configuration options
+    #
+    ## # editor [-e --editor]
+    ## ruby-edit configure --editor
+    ## => vim
+    ## ruby-edit configure --editor emacs
+    ## => emacs
+    ##
+    ## # grep options [-o --grep_options]
+    ## ruby-edit configure --grep_options
+    ## => irn
+    ## ruby-edit configure --grep_options h
+    ## => Hn
     def configure(*)
       if options[:help]
         invoke :help, ['configure']
@@ -39,6 +56,13 @@ module RubyEdit
     method_option :expression, aliases: %w[-e --expression], type: :string,
                                desc: 'the grep expression', required: true
     method_option :path, aliases: %w[-p --path], type: :string, desc: 'the path you want to search'
+    # text [-t --text]
+    #
+    # Performs a grep search based on given parameters, and puts all of the results into one file
+    # to be edited.
+    #
+    ## # expression(required) [-e --expression]
+    ## # path [-p --path] (defaults to *)
     def text(*)
       if options[:help]
         invoke :help, ['text']
