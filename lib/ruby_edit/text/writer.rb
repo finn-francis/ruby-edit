@@ -31,6 +31,7 @@ module RubyEdit
         @temp_file = Tempfile.new('temp_file')
         # If split_file_and_line fails, we return, and move on to the next line
         return unless split_file_and_line(new_line)
+
         @new_line = new_line.sub LINE_REGEX, ''
         begin
           replace_line
@@ -53,6 +54,7 @@ module RubyEdit
       def split_file_and_line(line)
         match = line.match(LINE_REGEX)
         return unless match
+
         @file_name, @line_number = match[0].split(':')
       end
 
@@ -79,3 +81,4 @@ module RubyEdit
     end
   end
 end
+

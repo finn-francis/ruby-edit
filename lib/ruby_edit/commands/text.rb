@@ -27,6 +27,7 @@ module RubyEdit
       # Executes all of the methods needed to perform a text edit
       def execute
         return unless grep_search
+
         populate_sourcefile
         edit_file
         apply_changes if apply_changes?
