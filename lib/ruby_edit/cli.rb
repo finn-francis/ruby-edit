@@ -35,13 +35,13 @@ module RubyEdit
 
     map %w[--configure -c] => :configure
 
-    desc 'edit', 'Perform a grep and edit the changes in one file'
+    desc 'text', 'Perform a grep and edit the changes in one file'
     method_option :expression, aliases: %w[-e --expression], type: :string,
                                desc: 'the grep expression', required: true
     method_option :path, aliases: %w[-p --path], type: :string, desc: 'the path you want to search'
-    def edit(*)
+    def text(*)
       if options[:help]
-        invoke :help, ['edit']
+        invoke :help, ['text']
       elsif options.empty?
         invoke :help
       else
@@ -49,6 +49,8 @@ module RubyEdit
         RubyEdit::Commands::Edit.new(options).execute
       end
     end
+
+    map %w[--text -t] => :text
   end
 end
 
