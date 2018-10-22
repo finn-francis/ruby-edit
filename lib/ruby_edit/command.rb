@@ -3,6 +3,15 @@
 require 'forwardable'
 
 module RubyEdit
+  # Contains all of the TTY gems in one class
+  #
+  # All classes that require TTY functionality inherit from this class
+  ## # e.g.
+  ## class MyClass < RubyEdit::Command
+  ##   def print_working_directory
+  ##     puts command(pwd)
+  ##   end
+  ## end
   class Command
     extend Forwardable
 
