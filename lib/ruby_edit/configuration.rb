@@ -37,7 +37,7 @@ module RubyEdit
     # @param grep_options [String]
     def grep_options=(grep_options)
       # All occurences of n are removed, as n is autamatically added when the options are fetched.
-      @config.set(:grep_options, value: grep_options.gsub('n', ''))
+      @config.set(:grep_options, value: grep_options.delete('n'))
       write
     end
 
