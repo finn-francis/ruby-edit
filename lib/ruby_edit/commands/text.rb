@@ -9,7 +9,7 @@ require 'ruby_edit/text/writer'
 
 module RubyEdit
   module Commands
-    class Edit
+    class Text
       def initialize(options)
         @grep       = RubyEdit::Text::Grep.new(options)
         @sourcefile = RubyEdit::SourceFile.new
