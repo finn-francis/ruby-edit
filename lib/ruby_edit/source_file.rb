@@ -14,7 +14,11 @@ module RubyEdit
     # @param **options [key value pairs] -
     # See https://github.com/piotrmurach/tty-file for TTY::File docs
     def populate(content, **options)
-      generator.create_file(RubyEdit::SOURCE_FILE_LOCATION, content, force: true, **options)
+      generator.create_file(RubyEdit::SOURCE_FILE_LOCATION,
+                            content,
+                            force: true,
+                            verbose: false,
+                            **options)
     end
 
     # Deletes the sourcefile
@@ -22,7 +26,7 @@ module RubyEdit
     # @param **options [key value pairs] -
     # See https://github.com/piotrmurach/tty-file for TTY::File docs
     def delete(**options)
-      generator.remove_file(RubyEdit::SOURCE_FILE_LOCATION, **options)
+      generator.remove_file(RubyEdit::SOURCE_FILE_LOCATION, verbose: false,  **options)
     end
   end
 end
