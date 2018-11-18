@@ -75,6 +75,25 @@ module RubyEdit
     end
 
     map %w[--text -t] => :text
+
+    desc 'file', 'Perform a find and edit the changes in one file'
+    method_option :name, aliases: %w[-n --name], type: :string,
+                         desc: 'The file / directory name', required: true
+    method_option :type, aliases: %w[-t --type], type: :string,
+                         desc: 'file [f, file] or directory [d, directory]'
+    method_option :path, aliases: %w[-p --path], type: :string,
+                         desc: 'the path you want to search'
+
+    def file(*)
+      if options[:help]
+        invoke :help, ['file']
+      elsif options.empty?
+        invoke :help
+      else
+        require_relative 'commands/file'
+        RubyEdit::Commands::File.new(options).execute
+      end
+    end
   end
 end
 
