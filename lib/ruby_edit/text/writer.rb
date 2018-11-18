@@ -15,7 +15,7 @@ module RubyEdit
       # Opens the file for writing in a block to ensure it will always be closed properly,
       # and sends of each line to be processed and written
       def write
-        File.open(RubyEdit::SOURCE_FILE_LOCATION, 'rb') do |file|
+        ::File.open(RubyEdit::SOURCE_FILE_LOCATION, 'rb') do |file|
           file.each_line { |line| find_and_replace_line line }
         end
       end
@@ -60,7 +60,7 @@ module RubyEdit
 
       # Replaces the line in the original file, with the line from the sourcefile
       def replace_line
-        File.open(@file_name, 'r+') do |file|
+        ::File.open(@file_name, 'r+') do |file|
           # Using file.each instead of each_with_index for performance increase
           index = 1
           file.each do |line|

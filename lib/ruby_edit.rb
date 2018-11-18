@@ -8,7 +8,7 @@ require 'ruby_edit/configuration'
 #
 # All gem specific classes and modules are nested under this module
 module RubyEdit
-  SOURCE_FILE_LOCATION = File.expand_path('../temp/sourcefile', __dir__)
+  SOURCE_FILE_LOCATION = ::File.expand_path('../temp/sourcefile', __dir__)
   CONFIGURATION_LOCATION = "#{__dir__}/../configuration".freeze
 
   class << self
