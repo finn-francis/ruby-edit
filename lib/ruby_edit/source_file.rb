@@ -26,7 +26,7 @@ module RubyEdit
     # @param **options [key value pairs] -
     # See https://github.com/piotrmurach/tty-file for TTY::File docs
     def delete(**options)
-      generator.remove_file(RubyEdit::SOURCE_FILE_LOCATION, verbose: false,  **options)
+      generator.remove_file(RubyEdit::SOURCE_FILE_LOCATION, verbose: false, **options)
     end
   end
 end
